@@ -13,5 +13,5 @@ W3_1作业
  1. 先运行hardhat node
  2. 再开个控制台部署合约 ERC20 Token，Vault，ERC721 Token
  3. 再开个控制台启动vue项目，npm run serve
- 4. 打开浏览器http://localhost:8080 在页面中交互
+ 4. 打开浏览器http://localhost:8080 在页面中交互，页面中可通过选项菜单进行合约组件的切换，每个组件就是一个合约
  5. 或者直接在测试脚本中交互
