@@ -19,4 +19,23 @@ W3_1作业
 ![先本地测试ERC20](https://github.com/web3duck/learnblockchaintask/blob/main/W3/W3-1/imgs/ERC20-Token%E8%BD%AC%E8%B4%A6%E6%B5%8B%E8%AF%95.jpg)
 
 ### ERC20代币增发
-![ERC20代币增发]()
+![ERC20代币增发](https://github.com/web3duck/learnblockchaintask/blob/main/W3/W3-1/imgs/ERC20%E4%BB%A3%E5%B8%81%E5%A2%9E%E5%8F%91.jpg)
+![增发2](https://github.com/web3duck/learnblockchaintask/blob/main/W3/W3-1/imgs/ERC20%E5%A2%9E%E5%8F%912.jpg)
+
+### ERC20转账
+![ERC20转账](https://github.com/web3duck/learnblockchaintask/blob/main/W3/W3-1/imgs/ERC20%E8%BD%AC%E8%B4%A6.jpg)
+
+### Vault脚本测试
+![Vault脚本测试](https://github.com/web3duck/learnblockchaintask/blob/main/W3/W3-1/imgs/Vault%E5%90%88%E7%BA%A6%E6%B5%8B%E8%AF%95.jpg)
+
+### 授权ABC Token给Vault合约
+![授权ABC Token给Vault合约](https://github.com/web3duck/learnblockchaintask/blob/main/W3/W3-1/imgs/%E6%8E%88%E6%9D%83ABC%20Token%E7%BB%99Vault%E5%90%88%E7%BA%A6.jpg)
+
+### 查询授权余额
+![查询授权余额](https://github.com/web3duck/learnblockchaintask/blob/main/W3/W3-1/imgs/%E6%8E%88%E6%9D%83%E5%AE%8C%E6%88%90%E5%90%8E%E6%9F%A5%E8%AF%A2%E6%8E%88%E6%9D%83%E4%BD%99%E9%A2%9D.jpg)
+
+### 存ABC进Vault合约
+![存ABC进Vault合约](https://github.com/web3duck/learnblockchaintask/blob/main/W3/W3-1/imgs/%E5%AD%98ABC%E8%BF%9BVault%E5%90%88%E7%BA%A6.jpg)
+
+### 从Vault合约取款
+![从Vault合约取款](https://github.com/web3duck/learnblockchaintask/blob/main/W3/W3-1/imgs/%E4%BB%8EVault%E5%90%88%E7%BA%A6%E5%8F%96%E6%AC%BE.jpg)
