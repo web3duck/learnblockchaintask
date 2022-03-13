@@ -7,9 +7,11 @@ W3_1作业
   * 编写 withdraw ⽅法，提取⽤户⾃⼰的存款 （前端调⽤）
   * 前端显示⽤户存款⾦额
 
-
-项目介绍：
-完整运行步骤
-1. 先运行hardhat node
-2. 再开个控制台启动vue项目，npm run serve
-3. 打开浏览器http://localhost:8080 在页面中交互
+<hr/>
+介绍：
+项目完整运行步骤：
+ 1. 先运行hardhat node
+ 2. 再开个控制台部署合约 ERC20 Token，Vault，ERC721 Token
+ 3. 再开个控制台启动vue项目，npm run serve
+ 4. 打开浏览器http://localhost:8080 在页面中交互
+ 5. 或者直接在测试脚本中交互
