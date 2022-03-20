@@ -8,10 +8,7 @@ task("accounts", "Prints the list of accounts", async () => {
         console.log(account.address);
     }
 });
-// clarify attend crop moon distance decade boring soldier guide rich apology disagree
 const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
-//账号秘钥 .trim()去掉前后空格，StringBuffer转换成String类型时，没有trim会导致意想不到的结果
 const privateKey = fs.readFileSync(".secret").toString().trim();
 const ropstenId = "befe5a5a616e487c9b61bffa11491acc";
 
