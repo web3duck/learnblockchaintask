@@ -103,7 +103,7 @@ async function main() {
     let txWithdraw = await market.withdraw();
     await txWithdraw.wait();
     let bTokenNum2 = await btoken.balanceOf(market.address);
-    console.log("owner现在持有TokenB:" + ethers.utils.formatUnits(bTokenNum2, 18));
+    console.log("market现在持有TokenB:" + ethers.utils.formatUnits(bTokenNum2, 18));
 }
 
 // We recommend this pattern to be able to use async/await everywhere
