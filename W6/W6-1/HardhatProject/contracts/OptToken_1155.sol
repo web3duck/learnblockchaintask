@@ -10,11 +10,15 @@ contract OptToken_1155 is ERC1155, Ownable {
     using SafeERC20 for IERC20;
     // 期权
     struct OptInfo {
+        uint tokenId;
         uint256 price; // 到期执行价格
         uint256 settlementTime; // 行权时间
     }
     // 期权数组
     OptInfo[] public OptInfoArr;
+    // 因为期权数组删除元素时会弄乱index，所用不能直接用index作tokenId
+    // from tokenId to OptInfo
+    mapping(uint => OptInfo) OptInfos;
     // 行权有效期
     uint256 public constant during = 3 days;
     address public usdcToken;
@@ -26,34 +30,34 @@ contract OptToken_1155 is ERC1155, Ownable {
     receive() external payable {}
 
     // 发行期权
-    function mint(uint256 days_, uint256 price_) external payable onlyOwner {
+    function mint(uint tokenId_, uint256 days_, uint256 price_) external payable onlyOwner {
         uint256 _executeTime = uint256(block.timestamp) + days_; // days天后可行权
-        uint256 _tokenId = OptInfoArr.length; // tokenId 为数组index
 
-        OptInfoArr.push(OptInfo({price: price_, settlementTime: _executeTime}));
+        OptInfoArr.push(OptInfo({tokenId:tokenId_, price: price_, settlementTime: _executeTime}));
+        OptInfos[tokenId_] = OptInfo({tokenId:tokenId_, price: price_, settlementTime: _executeTime});
 
-        _mint(msg.sender, _tokenId, msg.value, "");
+        _mint(msg.sender, tokenId_, msg.value, "");
     }
 
     // 用户行权
-    function settlement(uint256 _tokenId, uint256 amount) external {
+    function settlement(uint256 tokenId_, uint256 amount_) external {
         require(
-            block.timestamp >= OptInfoArr[_tokenId].settlementTime &&
-                block.timestamp < OptInfoArr[_tokenId].settlementTime + during,
+            block.timestamp >= OptInfos[tokenId_].settlementTime &&
+                block.timestamp < OptInfos[tokenId_].settlementTime + during,
             "invalid time"
         );
 
         // 销毁期权token
-        _burn(msg.sender, _tokenId, amount);
+        _burn(msg.sender, tokenId_, amount_);
 
-        uint256 needUsdcAmount = OptInfoArr[_tokenId].price * amount;
+        uint256 needUsdcAmount = OptInfos[tokenId_].price * amount_;
         IERC20(usdcToken).safeTransferFrom(
             msg.sender,
             address(this),
             needUsdcAmount
         );
 
-        safeTransferETH(msg.sender, amount);
+        safeTransferETH(msg.sender, amount_);
     }
 
     function safeTransferETH(address to, uint256 value) internal {
@@ -72,6 +76,7 @@ contract OptToken_1155 is ERC1155, Ownable {
                 OptInfoArr[i].settlementTime + during
             ) {
                 _remove(i);
+                delete(OptInfos[OptInfoArr[i].tokenId]);
             }
         }
     }
