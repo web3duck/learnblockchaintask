@@ -44,7 +44,7 @@ async function main() {
 
     // 执行取钱提案
     console.log("提案执行");
-    const tx_withdraw = await gov.executeTransaction(0, amount10);
+    const tx_withdraw = await gov.executeTransaction(0);
     await tx_withdraw.wait();
 
     // 查看余额
