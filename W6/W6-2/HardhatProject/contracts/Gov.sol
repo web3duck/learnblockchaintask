@@ -100,7 +100,7 @@ contract Gov {
     }
 
     // 执行提案
-    function executeTransaction(uint _txIndex, uint _amount)
+    function executeTransaction(uint _txIndex)
         public
         onlyOwner
         txExists(_txIndex)
@@ -115,7 +115,7 @@ contract Gov {
 
         transaction.executed = true;
         // 取钱
-        ITreasury(transaction.treasuryAddr).withdraw(_amount);
+        ITreasury(transaction.treasuryAddr).withdraw(transaction.amount);
     }
 
     // 取消投票
